@@ -1,0 +1,14 @@
+.circle {
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+  padding: 2px;
+  background: #fff;
+  border: 2px solid green;
+  color: green;
+  text-align: center;
+  font:
+    14px Arial,
+    sans-serif,
+    bolder;
+}

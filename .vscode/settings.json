@@ -1,0 +1,10 @@
+{
+  "editor.formatOnSave": true,
+  "editor.formatOnPaste": false,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "prettier.printWidth": 160,
+  "editor.codeActionsOnSave": {
+    "source.organizeImports": "explicit",
+    "source.sortMembers": "explicit"
+  }
+}

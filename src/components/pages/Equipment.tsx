@@ -1,0 +1,64 @@
+"use client";
+import { ContactForm, FormFields, IFormField } from "@/components/controls/ContactForm/ContactForm";
+import { useAppSelector } from "@/store/utils/useAppSelector";
+import visual from "@assets/visual_equipment.png";
+import { FAQ, IFAQProps } from "@components/controls/FAQ/FAQ";
+import { HowToDo, IHowToDoProps } from "@components/controls/HowToDo/HowToDo";
+import { IWishList, WishList } from "@components/controls/WishList/WishList";
+import { Card, CardActions, CardContent, Paper, Stack, Typography } from "@mui/material";
+import { amber, grey } from "@mui/material/colors";
+
+export function Equipment() {
+  const content = useAppSelector((store) => store.texts);
+
+  const howWeWork: IHowToDoProps = {
+    title: content.pages.equipment.howWeWork.title,
+    todos: content.pages.equipment.howWeWork.text,
+  };
+
+  const faq: IFAQProps = {
+    title: content.pages.equipment.faq.title,
+    items: content.pages.equipment.faq.text,
+  };
+
+  const formFields: FormFields = content.pages.equipment.contactForm.formFields.reduce<{
+    [x: string]: IFormField;
+  }>((result, current, index) => {
+    result["field" + index] = {
+      label: current.label,
+      value: current.value || "",
+      required: current.required || false,
+      mask: current.mask || undefined,
+      pattern: current.pattern || undefined,
+    };
+    return result;
+  }, {});
+
+  const whatWeSale: IWishList = {
+    title: content.pages.equipment.whatWeSale.title,
+    terms: content.pages.equipment.whatWeSale.text,
+  };
+
+  return (
+    <Stack spacing={3}>
+      <img src={visual.src} />
+
+      <Card sx={{ bgcolor: grey[50] }}>
+        <CardContent>
+          <Typography gutterBottom variant="h5" component="div">
+            {content.pages.equipment.contactForm.title}
+          </Typography>
+          <Typography color="text.secondary">{content.pages.equipment.contactForm.text}</Typography>
+        </CardContent>
+        <CardActions>
+          <ContactForm formFields={formFields} />
+        </CardActions>
+      </Card>
+      <HowToDo todos={howWeWork.todos} title={howWeWork.title} />
+      <Paper sx={{ padding: 1, bgcolor: amber[50] }}>
+        <WishList title={whatWeSale.title} terms={whatWeSale.terms} />
+      </Paper>
+      <FAQ title={faq.title} items={faq.items} />
+    </Stack>
+  );
+}
