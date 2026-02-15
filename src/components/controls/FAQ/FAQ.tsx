@@ -6,6 +6,7 @@ import {
   Box,
   Typography,
 } from "@mui/material";
+import { sanitizeHtml } from "@utils/sanitize";
 
 export interface IFAQProps {
   title: string;
@@ -26,7 +27,9 @@ export function FAQ(props: IFAQProps) {
             <Typography>{item.question}</Typography>
           </AccordionSummary>
           <AccordionDetails>
-            <Typography>{item.answer}</Typography>
+            <Typography
+              dangerouslySetInnerHTML={{ __html: sanitizeHtml(item.answer) }}
+            />
           </AccordionDetails>
         </Accordion>
       ))}
