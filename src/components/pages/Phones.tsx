@@ -2,7 +2,7 @@
 import { ContactForm, FormFields, IFormField } from "@/components/controls/ContactForm/ContactForm";
 import { useAppSelector } from "@/store/utils/useAppSelector";
 import visual from "@assets/visual_phones.png";
-import { FAQ, IFAQProps } from "@components/controls/FAQ/FAQ";
+import FAQ, { IFAQProps } from "@components/controls/FAQ/FAQ";
 import { HowToDo, IHowToDoProps } from "@components/controls/HowToDo/HowToDo";
 import { IWishList, WishList } from "@components/controls/WishList/WishList";
 import { Card, CardActions, CardContent, Paper, Stack, Typography } from "@mui/material";

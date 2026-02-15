@@ -1,8 +1,9 @@
 "use client";
 import { useAppSelector } from "@/store/utils/useAppSelector";
-import footerLogo from "@assets/logo.png";
+import logo from "@assets/logo.png";
 import { Call, WhatsApp } from "@mui/icons-material";
 import { Grid, Link, Paper, Typography } from "@mui/material";
+import Image from 'next/image'
 
 export function Footer() {
   const app = useAppSelector((store) => store.app);
@@ -11,7 +12,7 @@ export function Footer() {
     <Paper elevation={3} sx={{ padding: 1, bgcolor: "#eaeef2" }}>
       <Grid container spacing={2} columns={12}>
         <Grid item xs={6} sm={6} md={6}>
-          <img src={footerLogo.src} />
+          <Image src={logo.src} alt="Логотип компании" width={128} height={35} />
         </Grid>
         <Grid item xs={6} md={6} sm={6}>
           <Typography variant="h5" align="right">

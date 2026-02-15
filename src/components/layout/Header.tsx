@@ -1,5 +1,6 @@
 "use client";
 import { useAppSelector } from "@/store/utils/useAppSelector";
+import Image from 'next/image'
 import logo from "@assets/logo.png";
 import { Call, Telegram } from "@mui/icons-material";
 import { Grid, Link, Typography } from "@mui/material";
@@ -13,7 +14,7 @@ export function Header() {
       <Grid container spacing={2} columns={12}>
         <Grid item xs={6} sm={6} md={6} alignItems={"center"} alignContent={"center"} style={{ paddingBottom: "10px" }}>
           <Link href="/">
-            <img src={logo.src} />
+            <Image src={logo.src} alt="Логотип компании" width={128} height={35} />
           </Link>
         </Grid>
         <Grid item xs={6} md={6} sm={6} alignItems={"center"} alignContent={"center"}>
@@ -23,7 +24,7 @@ export function Header() {
                 display: "inline",
                 pr: "20px",
               }}
-              href={`https://t.me/+${app.contactPhone}`}
+              href={`https://t.me/${app.contactPhone}`}
               target="_blank"
             >
               <Telegram sx={{ verticalAlign: "middle" }} color="info" />
