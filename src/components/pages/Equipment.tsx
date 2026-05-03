@@ -5,6 +5,7 @@ import visual from "@assets/visual_equipment.png";
 import FAQ, { IFAQProps } from "@components/controls/FAQ/FAQ";
 import { HowToDo, IHowToDoProps } from "@components/controls/HowToDo/HowToDo";
 import { IWishList, WishList } from "@components/controls/WishList/WishList";
+import Image from "next/image";
 import { Card, CardActions, CardContent, Paper, Stack, Typography } from "@mui/material";
 import { amber, grey } from "@mui/material/colors";
 
@@ -41,7 +42,7 @@ export function Equipment() {
 
   return (
     <Stack spacing={3}>
-      <img src={visual.src} />
+      <Image src={visual} alt="Выкуп металлообрабатывающих станков" width={820} height={325} style={{ width: '100%', height: 'auto' }} priority />
 
       <Card sx={{ bgcolor: grey[50] }}>
         <CardContent>
